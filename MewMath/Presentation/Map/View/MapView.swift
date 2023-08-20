@@ -1,3 +1,10 @@
+//
+//  MapView.swift
+//  MewMath
+//
+//  Created by Agung Saputra on 17/08/23.
+//
+
 import SwiftUI
 
 struct MapView: View {
@@ -204,7 +211,7 @@ struct ObjLevel: View {
     var body: some View {
         Group {
             HStack {
-                NavigationLink(destination: Question1View(), label: {
+                NavigationLink(destination: QuestionView1(), label: {
                     BtnLevel(bgColorName: "Pink", imageName: "Ball", levelName: "Bola Wol")
                 })
                 Spacer()
@@ -240,8 +247,6 @@ struct ObjLevel: View {
         }
     }
 }
-
-
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {

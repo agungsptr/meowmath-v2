@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "questionText": "Si Garong mempunyai 4 buah bola wol berwarna merah di dalam keranjang mainannya. Kemudian Temannya datang dan memberinya 2 buah bola wol berwarna hijau. Berapa banyak bola wol yang dimiliki Si Garong sekarang?",
+    "answers": ["4", "2", "+", "6"]
+  },
+  {
+    "id": 2,
+    "questionText": "Si Garong mempunyai 6 potong ikan di mangkuk makanannya. Kemudian Garong memakan 2 potong ikan. Berapa banyak potong ikan yang tersisa?",
+    "answers": ["6", "2", "-", "4"]
+  }
+]
