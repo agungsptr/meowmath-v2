@@ -9,20 +9,9 @@ import SwiftUI
 
 struct QuestionView1: View {
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var vm = QuestionViewModel(questionId: 1)
-    @State private var step = 0
-    @State private var showAlert = false
-    @State private var showSuccessAlert = false
-    
+    @StateObject private var viewModel = QuestionViewModel(questionId: 1)
     @State private var redBall = ["dragable": true, "show": true]
     @State private var greenBall = ["dragable": true, "show": true]
-    
-    @State private var itemPosition = Array(repeating: [CGFloat(0), CGFloat(0)], count: 6)
-    @State private var itemScale = Array(repeating: CGFloat(0.7), count: 6)
-    @State private var itemOnTarget = Array(repeating: false, count: 6)
-    
-    @State var answerList = Array(repeating: "?", count: 4)
-    
     private let ballSize: CGFloat = 100
     private let screenWidth = UIScreen.main.bounds.width
     private let screenHeight = UIScreen.main.bounds.height
@@ -30,16 +19,14 @@ struct QuestionView1: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                // background
                 Image("BgQuest")
                     .resizable()
                     .ignoresSafeArea(.all)
                 
-                // question and character
                 VStack {
                     QuestionBoxView(
-                        questionNumber: vm.question.id,
-                        question: vm.getQuestionByStep(step: step)
+                        questionNumber: viewModel.question.id,
+                        question: viewModel.getQuestionByStep(step: viewModel.step)
                     )
                     .padding(.top, 15)
                     
@@ -50,7 +37,7 @@ struct QuestionView1: View {
                             .frame(width: 120)
                             .offset(y: -10)
                         Spacer()
-                        if step >= 2 {
+                        if viewModel.step >= 2 {
                             Image("CatFemale")
                                 .resizable()
                                 .scaledToFit()
@@ -62,109 +49,110 @@ struct QuestionView1: View {
                     Spacer()
                 }
                 
-                // basket
                 Image("Basket")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 260)
                     .position(x: screenWidth * 1/2, y: screenHeight * 4/9)
                 
-                // anwer options
                 VStack {
                     Spacer()
-                    [0,2].contains(step) ? InfoBoxView(text: "Masukkan bola kedalam keranjang!") : nil
-                    if step == 1 {
+                    [0, 2].contains(viewModel.step) ? InfoBoxView(text: "Masukkan bola kedalam keranjang!") : nil
+                    if viewModel.step == 1 {
                         OptionBoxView(
-                            step: $step,
+                            step: $viewModel.step,
                             questionText: "Berapa jumlah wol yang ada dikeranjang saat ini?",
-                            correctAnswer: "\(vm.question.answers[0])",
-                            answerList: $answerList,
+                            correctAnswer: "\(viewModel.question.answers[0])",
+                            answerList: $viewModel.answerList,
                             answerIndex: 0,
-                            showFailAlert: $showAlert,
-                            showSuccessAlert: $showSuccessAlert
+                            showFailAlert: $viewModel.showFailAlert,
+                            showSuccessAlert: $viewModel.showSuccessAlert
                         )
-                    } else if step == 3 {
+                    } else if viewModel.step == 3 {
                         OptionBoxView(
-                            step: $step,
+                            step: $viewModel.step,
                             questionText: "Berapa jumlah bola wol hijau yang diberikan?",
-                            correctAnswer: "\(vm.question.answers[1])",
-                            answerList: $answerList,
+                            correctAnswer: "\(viewModel.question.answers[1])",
+                            answerList: $viewModel.answerList,
                             answerIndex: 2,
-                            showFailAlert: $showAlert,
-                            showSuccessAlert: $showSuccessAlert
+                            showFailAlert: $viewModel.showFailAlert,
+                            showSuccessAlert: $viewModel.showSuccessAlert
                         )
-                    } else if step == 4 {
+                    } else if viewModel.step == 4 {
                         OptionBoxView(
-                            step: $step,
+                            step: $viewModel.step,
                             questionText: "Menurut kamu, operasi apa yang cocok untuk soal tersebut?",
-                            correctAnswer: "\(vm.question.answers[2])",
-                            answerList: $answerList,
+                            correctAnswer: "\(viewModel.question.answers[2])",
+                            answerList: $viewModel.answerList,
                             answerIndex: 1,
-                            showFailAlert: $showAlert,
-                            showSuccessAlert: $showSuccessAlert
+                            showFailAlert: $viewModel.showFailAlert,
+                            showSuccessAlert: $viewModel.showSuccessAlert
                         )
-                    } else if step == 5 {
+                    } else if viewModel.step == 5 {
                         OptionBoxView(
-                            step: $step,
+                            step: $viewModel.step,
                             questionText: "Berapa jumlah wol yang ada dikeranjang saat ini?",
-                            correctAnswer: "\(vm.question.answers[3])",
-                            answerList: $answerList,
+                            correctAnswer: "\(viewModel.question.answers[3])",
+                            answerList: $viewModel.answerList,
                             answerIndex: 3,
-                            showFailAlert: $showAlert,
-                            showSuccessAlert: $showSuccessAlert
+                            showFailAlert: $viewModel.showFailAlert,
+                            showSuccessAlert: $viewModel.showSuccessAlert
                         )
                     }
-                    AnswerBoxView(selectedBox: step, answerList: $answerList)
+                    AnswerBoxView(
+                        selectedBox: viewModel.step,
+                        answerList: $viewModel.answerList
+                    )
                 }
                 
-                // Balls
                 if redBall["show"]! {
-                    ForEach(0..<4, id: \.self) { i in
+                    ForEach(0..<4, id: \.self) { idx in
                         Image("BallFill")
                             .resizable()
                             .scaledToFit()
                             .frame(
-                                width: ballSize * itemScale[i],
-                                height: ballSize * itemScale[i])
+                                width: ballSize * viewModel.itemScale[idx],
+                                height: ballSize * viewModel.itemScale[idx])
                             .position(
-                                x: itemPosition[i][0],
-                                y: itemPosition[i][1]
+                                x: viewModel.itemPosition[idx][0],
+                                y: viewModel.itemPosition[idx][1]
                             )
                             .gesture(
                                 dragGesture(
-                                    itemIndex: i,
+                                    itemIndex: idx,
                                     dragable: redBall["dragable"]!
                                 )
                             )
                             .onAppear {
-                                itemPosition[i] = [
-                                    screenWidth * (CGFloat(i) + 1) / 5,
+                                viewModel.itemPosition[idx] = [
+                                    screenWidth * (CGFloat(idx) + 1) / 5,
                                     screenHeight * 4/7
                                 ]
                             }
                     }
                 }
-                if step >= 2 && greenBall["show"]! {
-                    ForEach(0..<2, id: \.self) { i in
+                
+                if viewModel.step >= 2 && greenBall["show"]! {
+                    ForEach(0..<2, id: \.self) { idx in
                         Image("BallFillGreen")
                             .resizable()
                             .scaledToFit()
                             .frame(
-                                width: (ballSize - 14) * itemScale[4+i],
-                                height: ballSize * itemScale[4+i])
+                                width: (ballSize - 14) * viewModel.itemScale[4+idx],
+                                height: ballSize * viewModel.itemScale[4+idx])
                             .position(
-                                x: itemPosition[4+i][0],
-                                y: itemPosition[4+i][1]
+                                x: viewModel.itemPosition[4+idx][0],
+                                y: viewModel.itemPosition[4+idx][1]
                             )
                             .gesture(
                                 dragGesture(
-                                    itemIndex: 4+i,
+                                    itemIndex: 4+idx,
                                     dragable: greenBall["dragable"]!
                                 )
                             )
                             .onAppear {
-                                itemPosition[4+i] = [
-                                    screenWidth * (CGFloat(i) + 2) / 5,
+                                viewModel.itemPosition[4+idx] = [
+                                    screenWidth * (CGFloat(idx) + 2) / 5,
                                     screenHeight * 3/5
                                 ]
                             }
@@ -184,11 +172,11 @@ struct QuestionView1: View {
                     Spacer()
                 }
                 
-                if showAlert {
+                if viewModel.showFailAlert {
                     FailAlertView()
                 }
                 
-                if showSuccessAlert {
+                if viewModel.showSuccessAlert {
                     SuccessAlertView(questionId: 1)
                 }
             }
@@ -200,39 +188,31 @@ struct QuestionView1: View {
         return DragGesture()
             .onChanged({ value in
                 if dragable {
-                    self.itemPosition[itemIndex] = [value.location.x, value.location.y]
+                    viewModel.itemPosition[itemIndex] = [value.location.x, value.location.y]
                 }
                 withAnimation(.spring(response: 0.4, dampingFraction: 0.3, blendDuration: 1)) {
-                    self.itemScale[itemIndex] = 1.0
+                    viewModel.itemScale[itemIndex] = 1.0
                 }
             })
             .onEnded({ _ in
-                self.itemOnTarget[itemIndex] = checkItemOnTarget(self.itemPosition[itemIndex])
+                viewModel.itemOnTarget[itemIndex] = checkItemOnTarget(
+                    position: viewModel.itemPosition[itemIndex],
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight
+                )
                 
-                let totalItemOnTarget = countItemOnTarget(self.itemOnTarget)
-                if step == 0 && totalItemOnTarget == 4 {
-                    step += 1
-                } else if step == 2 && totalItemOnTarget == 6 {
-                    step += 1
+                let totalItemOnTarget = countItemOnTarget(viewModel.itemOnTarget)
+                if viewModel.step == 0 && totalItemOnTarget == 4 {
+                    viewModel.step += 1
+                } else if viewModel.step == 2 && totalItemOnTarget == 6 {
+                    viewModel.step += 1
                 }
                 
                 withAnimation(.spring(response: 0.4, dampingFraction: 0.3, blendDuration: 1)) {
-                    self.itemScale[itemIndex] = 0.7
+                    viewModel.itemScale[itemIndex] = 0.7
                 }
                 UINotificationFeedbackGenerator().notificationOccurred(.success)
             })
-    }
-    
-    private func checkItemOnTarget(_ position: [CGFloat]) -> Bool {
-        let xOver = abs(screenWidth * 1/2 - position[0])
-        let yOver = abs(screenHeight * 4/9 - 25 - position[1])
-        return (xOver < 130 && yOver < 54)
-    }
-    
-    private func countItemOnTarget(_ arr: [Bool]) -> Int {
-        return arr.reduce(0) {
-            $1 ? $0 + 1 : $0
-        }
     }
 }
 

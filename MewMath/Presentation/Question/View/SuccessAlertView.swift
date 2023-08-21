@@ -67,6 +67,14 @@ struct SuccessAlertView: View {
                                     }
                                 )
                             }
+                            if questionId == 2 {
+                                NavigationLink(
+                                    destination: Explanation1View(),
+                                    label: {
+                                        BtnExplanation()
+                                    }
+                                )
+                            }
                             
                             Button {
                                 dismiss()

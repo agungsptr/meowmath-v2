@@ -11,6 +11,9 @@
 		181F8E5B2A9082FF00E8C237 /* OptionBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F8E5A2A9082FF00E8C237 /* OptionBoxView.swift */; };
 		181F8E5F2A90873100E8C237 /* Question2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F8E5E2A90873100E8C237 /* Question2View.swift */; };
 		181F8E662A91CCB300E8C237 /* Explanation2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F8E652A91CCB300E8C237 /* Explanation2View.swift */; };
+		181F8E6B2A93426300E8C237 /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F8E6A2A93426300E8C237 /* FileLoader.swift */; };
+		181F8E6D2A93435E00E8C237 /* OptionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F8E6C2A93435E00E8C237 /* OptionGenerator.swift */; };
+		181F8E732A935A1600E8C237 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F8E722A935A1600E8C237 /* Checker.swift */; };
 		1848E67F29DE7DAD0003315C /* MewMathApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848E67E29DE7DAD0003315C /* MewMathApp.swift */; };
 		1848E68329DE7DAD0003315C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1848E68229DE7DAD0003315C /* Assets.xcassets */; };
 		1848E68629DE7DAD0003315C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1848E68529DE7DAD0003315C /* Preview Assets.xcassets */; };
@@ -21,7 +24,6 @@
 		184F172E2A8E086E00BC4E52 /* QuestionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F172D2A8E086E00BC4E52 /* QuestionRepository.swift */; };
 		184F17302A8E08C300BC4E52 /* QuestionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F172F2A8E08C300BC4E52 /* QuestionUseCase.swift */; };
 		184F17342A8E10BD00BC4E52 /* QuestionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F17332A8E10BD00BC4E52 /* QuestionDataSource.swift */; };
-		184F17362A8E12C400BC4E52 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F17352A8E12C400BC4E52 /* Utils.swift */; };
 		184F17382A8E132B00BC4E52 /* QuestionData.json in Resources */ = {isa = PBXBuildFile; fileRef = 184F17372A8E132B00BC4E52 /* QuestionData.json */; };
 		184F173A2A8E14BF00BC4E52 /* QuestionRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F17392A8E14BF00BC4E52 /* QuestionRepositoryImpl.swift */; };
 		184F173C2A8E15B400BC4E52 /* QuestionInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F173B2A8E15B400BC4E52 /* QuestionInjection.swift */; };
@@ -42,6 +44,9 @@
 		181F8E5A2A9082FF00E8C237 /* OptionBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionBoxView.swift; sourceTree = "<group>"; };
 		181F8E5E2A90873100E8C237 /* Question2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question2View.swift; sourceTree = "<group>"; };
 		181F8E652A91CCB300E8C237 /* Explanation2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explanation2View.swift; sourceTree = "<group>"; };
+		181F8E6A2A93426300E8C237 /* FileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
+		181F8E6C2A93435E00E8C237 /* OptionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionGenerator.swift; sourceTree = "<group>"; };
+		181F8E722A935A1600E8C237 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		1848E67B29DE7DAD0003315C /* MewMath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MewMath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1848E67E29DE7DAD0003315C /* MewMathApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MewMathApp.swift; sourceTree = "<group>"; };
 		1848E68229DE7DAD0003315C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,7 +58,6 @@
 		184F172D2A8E086E00BC4E52 /* QuestionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionRepository.swift; sourceTree = "<group>"; };
 		184F172F2A8E08C300BC4E52 /* QuestionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionUseCase.swift; sourceTree = "<group>"; };
 		184F17332A8E10BD00BC4E52 /* QuestionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDataSource.swift; sourceTree = "<group>"; };
-		184F17352A8E12C400BC4E52 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		184F17372A8E132B00BC4E52 /* QuestionData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuestionData.json; sourceTree = "<group>"; };
 		184F17392A8E14BF00BC4E52 /* QuestionRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionRepositoryImpl.swift; sourceTree = "<group>"; };
 		184F173B2A8E15B400BC4E52 /* QuestionInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionInjection.swift; sourceTree = "<group>"; };
@@ -98,6 +102,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		181F8E692A93423F00E8C237 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				181F8E6A2A93426300E8C237 /* FileLoader.swift */,
+				181F8E6C2A93435E00E8C237 /* OptionGenerator.swift */,
+				181F8E722A935A1600E8C237 /* Checker.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		1848E67229DE7DAD0003315C = {
 			isa = PBXGroup;
 			children = (
@@ -119,11 +133,11 @@
 			children = (
 				33EF7CD229E99D9F003EC247 /* Info.plist */,
 				184F17162A8DECE700BC4E52 /* App */,
-				184F17172A8DECF300BC4E52 /* Common */,
 				184F17182A8DED2000BC4E52 /* Data */,
 				184F17192A8DED2700BC4E52 /* Domain */,
 				184F171A2A8DED3000BC4E52 /* Injection */,
 				184F171B2A8DED3A00BC4E52 /* Presentation */,
+				184F17172A8DECF300BC4E52 /* Util */,
 				1848E68429DE7DAD0003315C /* PreviewContent */,
 				184F171C2A8DED4F00BC4E52 /* SupportingFile */,
 			);
@@ -146,12 +160,12 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		184F17172A8DECF300BC4E52 /* Common */ = {
+		184F17172A8DECF300BC4E52 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				184F17352A8E12C400BC4E52 /* Utils.swift */,
+				181F8E692A93423F00E8C237 /* Helper */,
 			);
-			path = Common;
+			path = Util;
 			sourceTree = "<group>";
 		};
 		184F17182A8DED2000BC4E52 /* Data */ = {
@@ -331,6 +345,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				181F8E712A93452C00E8C237 /* PBXTargetDependency */,
 			);
 			name = MewMath;
 			productName = MewMath;
@@ -361,6 +376,9 @@
 				Base,
 			);
 			mainGroup = 1848E67229DE7DAD0003315C;
+			packageReferences = (
+				181F8E6F2A93451100E8C237 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+			);
 			productRefGroup = 1848E67C29DE7DAD0003315C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -397,16 +415,18 @@
 				DAE4834629E8ADE900355879 /* Explanation1View.swift in Sources */,
 				184F17262A8DF15300BC4E52 /* MainView.swift in Sources */,
 				184F172E2A8E086E00BC4E52 /* QuestionRepository.swift in Sources */,
+				181F8E6B2A93426300E8C237 /* FileLoader.swift in Sources */,
 				181F8E5F2A90873100E8C237 /* Question2View.swift in Sources */,
 				186701332A8E499A00F94309 /* InfoBoxView.swift in Sources */,
 				181F8E662A91CCB300E8C237 /* Explanation2View.swift in Sources */,
 				184F17342A8E10BD00BC4E52 /* QuestionDataSource.swift in Sources */,
 				184F17302A8E08C300BC4E52 /* QuestionUseCase.swift in Sources */,
-				184F17362A8E12C400BC4E52 /* Utils.swift in Sources */,
+				181F8E6D2A93435E00E8C237 /* OptionGenerator.swift in Sources */,
 				186701372A8E4B1100F94309 /* SuccessAlertView.swift in Sources */,
 				184F173C2A8E15B400BC4E52 /* QuestionInjection.swift in Sources */,
 				186701352A8E4A6600F94309 /* QuestionBoxView.swift in Sources */,
 				181F8E5B2A9082FF00E8C237 /* OptionBoxView.swift in Sources */,
+				181F8E732A935A1600E8C237 /* Checker.swift in Sources */,
 				184F173A2A8E14BF00BC4E52 /* QuestionRepositoryImpl.swift in Sources */,
 				184F17212A8DEEA500BC4E52 /* HomeView.swift in Sources */,
 				18F9D7832A8E2839001414DA /* MapView.swift in Sources */,
@@ -417,6 +437,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		181F8E712A93452C00E8C237 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 181F8E702A93452C00E8C237 /* SwiftLintPlugin */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1848E68729DE7DAD0003315C /* Debug */ = {
@@ -625,6 +652,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		181F8E6F2A93451100E8C237 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.52.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		181F8E702A93452C00E8C237 /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 181F8E6F2A93451100E8C237 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1848E67329DE7DAD0003315C /* Project object */;
 }

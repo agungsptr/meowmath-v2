@@ -11,8 +11,8 @@ struct HomeView: View {
     @State var catHeadAngel: CGFloat = 5
     @State private var scale: CGFloat = 0.7
     
-    var body: some View{
-        NavigationStack() {
+    var body: some View {
+        NavigationStack {
             ZStack {
                 Color("BgBlue")
                     .edgesIgnoringSafeArea(.all)
@@ -61,14 +61,14 @@ struct HomeView: View {
                 VStack {
                     Spacer()
                     ZStack {
-                        Image("Cat-body")
+                        Image("CatBody")
                             .resizable()
                             .frame(width: 235, height: 225)
-                        Image("Cat-head")
+                        Image("CatHead")
                             .resizable()
                             .frame(width: 235, height: 225)
                             .rotationEffect(.degrees(catHeadAngel))
-                            .onAppear{
+                            .onAppear {
                                 withAnimation(
                                     .easeInOut(duration: 1.0)
                                     .repeatForever(autoreverses: true)
@@ -110,7 +110,6 @@ private struct BtnPlay: View {
         }
     }
 }
-
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct MainView: View {
-    @AppStorage("isSplashScreen") var isSplashScreen = false
+    @State var isSplashScreen = false
     
     var body: some View {
         if !isSplashScreen {
             SplashScreenView()
                 .navigationBarBackButtonHidden(true)
                 .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         withAnimation {
                             isSplashScreen = true
                         }

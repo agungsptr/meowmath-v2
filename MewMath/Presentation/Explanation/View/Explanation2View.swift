@@ -10,7 +10,7 @@ import SwiftUI
 struct Explanation2View: View {
     @Environment(\.dismiss) private var dismiss
     
-    @State var step: Int = 1
+    @State var step: Int = 2
     @State var answer = Array(repeating: "", count: 4)
     
     private let screenWidth = UIScreen.main.bounds.width
@@ -18,10 +18,10 @@ struct Explanation2View: View {
     
     var body: some View {
         NavigationView {
-            ZStack{
+            ZStack {
                 Color("BgSemiBlue")
                     .ignoresSafeArea()
-                Image("Flower")
+                Image("CatStep")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 80)
@@ -29,7 +29,7 @@ struct Explanation2View: View {
                         x: screenWidth / 1.2,
                         y: screenHeight / 50
                     )
-                Image("Flower")
+                Image("CatStep")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 80)
@@ -52,7 +52,7 @@ struct Explanation2View: View {
                             if step == 1 {
                                 dismiss()
                             }
-                            if step <= 4 && step > 1{
+                            if step <= 4 && step > 1 {
                                 step -= 1
                             }
                         } label: {
@@ -111,7 +111,7 @@ struct Explanation2View: View {
                             answer = ["6", "", "", ""]
                         }
                     } else if step == 2 {
-                        HStack{
+                        HStack {
                             Image("Cat")
                                 .resizable()
                                 .scaledToFit()
@@ -130,7 +130,7 @@ struct Explanation2View: View {
                             answer = ["4", "", "2", ""]
                         }
                     } else if step == 3 {
-                        HStack{
+                        HStack {
                             Text("memakan")
                                 .font(.title)
                                 .foregroundColor(.pink)
@@ -147,7 +147,7 @@ struct Explanation2View: View {
                             answer = ["6", "-", "2", ""]
                         }
                     } else if step == 4 {
-                        HStack{
+                        HStack {
                             Text("6 - 2 = ?")
                                 .font(.largeTitle)
                         }
@@ -196,7 +196,7 @@ struct Explanation2View: View {
 private struct ImgFish: View {
     var boneOnly = false
     var body: some View {
-        Image(boneOnly ? "fishbone" : "Ikan")
+        Image(boneOnly ? "Fishbone" : "FishFill")
             .resizable()
             .scaledToFit()
             .frame(width: 70)

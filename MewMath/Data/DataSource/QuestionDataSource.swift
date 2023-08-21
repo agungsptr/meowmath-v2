@@ -13,7 +13,7 @@ protocol QuestionDataSource {
 
 struct QuestionDataSourceImpl: QuestionDataSource {
     func getAll() throws -> [QuestionModel] {
-        let data: [QuestionModel] = loadJsonFile("QuestionData.json")
+        let data: [QuestionModel] = try loadJson("QuestionData.json")
         return data
     }
 }

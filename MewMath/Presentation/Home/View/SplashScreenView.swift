@@ -45,7 +45,7 @@ struct SplashScreenView: View {
                     )
                     .frame(width: 149, height: 26)
                     .scaleEffect(isAnimate ? 2 : 1)
-                    .onAppear() {
+                    .onAppear {
                         withAnimation(.easeInOut(duration: 1.0)) {
                             isAnimate = true
                         }
@@ -53,11 +53,11 @@ struct SplashScreenView: View {
             }
             VStack {
                 Spacer()
-                ZStack{
+                ZStack {
                     Image("Land")
                         .resizable()
                         .scaledToFit()
-                    HStack{
+                    HStack {
                         Text("Music Copyright")
                         Label("syncopika", systemImage: "c.circle")
                     }

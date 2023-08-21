@@ -18,57 +18,69 @@ struct MapView: View {
                     gradient: Gradient(colors: [Color("BgGreenG1"), Color("BgGreenG2")]),
                     startPoint: .top,
                     endPoint: .bottom
-                ).ignoresSafeArea(.all)
+                )
+                .ignoresSafeArea(.all)
+                
                 VStack {
                     Spacer()
                     Image("LandMap")
                         .resizable()
                         .scaledToFit()
-                }.ignoresSafeArea(.all)
+                }
+                .ignoresSafeArea(.all)
+                
                 VStack {
-                    Image("CatPath")
+                    Image("Path")
                         .resizable()
                         .scaledToFit()
                         .padding(.vertical, 60)
                 }
-                ObjTrees()
+                
+                ImgTrees()
+                
                 VStack {
                     Spacer()
                     Image("CatMap")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 220)
-                }.ignoresSafeArea(.all)
+                }
+                .ignoresSafeArea(.all)
+                
                 VStack {
                     HStack {
-                        Button(action: {
+                        Button {
                             dismiss()
-                        }) {
+                        } label: {
                             BtnBack()
                         }
                         Spacer()
-                        Button(action: {
+                        Button {
                             self.isMuted.toggle()
-                            isMuted ? MusicPlayer.shared.stopBackgroundMusic() : MusicPlayer.shared.startBackgroundMusic()
-                        }) {
                             if isMuted {
-                                BtnSilent()
+                                MusicPlayer.shared.stopBackgroundMusic()
+                            } else {
+                                MusicPlayer.shared.startBackgroundMusic()
+                            }
+                        } label: {
+                            if isMuted {
+                                BtnSound(isSilent: true)
                             } else {
                                 BtnSound()
                             }
-                            
                         }
                     }
                     .padding(.horizontal)
                     Spacer()
                 }
+                
                 VStack {
                     Image("Flag")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 50)
                 }
-                ObjLevel()
+                Level()
             }
             .navigationBarBackButtonHidden(true)
         }
@@ -81,7 +93,7 @@ struct BtnBack: View {
             Circle()
                 .fill(Color("Pink"))
                 .frame(width: 50)
-                .shadow(color: Color("PinkShadow").opacity(0.8),radius: 10)
+                .shadow(color: Color("PinkShadow").opacity(0.8), radius: 10)
             Image(systemName: "arrowshape.backward.fill")
                 .resizable()
                 .foregroundColor(.white)
@@ -92,29 +104,14 @@ struct BtnBack: View {
 }
 
 struct BtnSound: View {
+    var isSilent = false
     var body: some View {
         ZStack {
             Circle()
                 .fill(Color("Pink"))
                 .frame(width: 50)
-                .shadow(color: Color("PinkShadow").opacity(0.8),radius: 10)
-            Image(systemName: "speaker.wave.2.fill")
-                .resizable()
-                .foregroundColor(.white)
-                .scaledToFill()
-                .frame(width: 22, height: 22)
-        }
-    }
-}
-
-struct BtnSilent: View {
-    var body: some View {
-        ZStack {
-            Circle()
-                .fill(Color("Pink"))
-                .frame(width: 50)
-                .shadow(color: Color("PinkShadow").opacity(0.8),radius: 10)
-            Image(systemName: "speaker.slash.fill")
+                .shadow(color: Color("PinkShadow").opacity(0.8), radius: 10)
+            Image(systemName: isSilent ? "speaker.slash.fill" : "speaker.wave.2.fill")
                 .resizable()
                 .foregroundColor(.white)
                 .scaledToFill()
@@ -155,7 +152,7 @@ struct BtnLevel: View {
     }
 }
 
-struct ObjTrees: View {
+struct ImgTrees: View {
     var body: some View {
         ZStack {
             VStack {
@@ -207,7 +204,7 @@ struct ObjTrees: View {
     }
 }
 
-struct ObjLevel: View {
+struct Level: View {
     var body: some View {
         Group {
             HStack {

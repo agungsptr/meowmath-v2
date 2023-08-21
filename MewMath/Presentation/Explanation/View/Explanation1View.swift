@@ -18,10 +18,10 @@ struct Explanation1View: View {
     
     var body: some View {
         NavigationView {
-            ZStack{
+            ZStack {
                 Color("BgSemiBlue")
                     .ignoresSafeArea()
-                Image("Flower")
+                Image("CatStep")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 80)
@@ -29,7 +29,7 @@ struct Explanation1View: View {
                         x: screenWidth / 1.2,
                         y: screenHeight / 50
                     )
-                Image("Flower")
+                Image("CatStep")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 80)
@@ -52,7 +52,7 @@ struct Explanation1View: View {
                             if step == 1 {
                                 dismiss()
                             }
-                            if step <= 4 && step > 1{
+                            if step <= 4 && step > 1 {
                                 step -= 1
                             }
                         } label: {
@@ -73,7 +73,10 @@ struct Explanation1View: View {
                             .padding(.vertical, 12)
                         
                         HStack {
-                            Text("Si Garong **mempunyai 4 buah** bola wol berwarna merah  di dalam keranjang mainannya. Kemudian Temannya datang dan ")
+                            Text("""
+                             Si Garong **mempunyai 4 buah** bola wol berwarna merah
+                             di dalam keranjang mainannya. Kemudian Temannya datang dan
+                             """)
                                 .font(.title2)
                             + Text("**memberinya 2 buah**")
                                 .font(.title2)
@@ -109,7 +112,7 @@ struct Explanation1View: View {
                             answer = ["4", "", "", ""]
                         }
                     } else if step == 2 {
-                        HStack{
+                        HStack {
                             Image("BallFillGreen")
                             Image("BallFillGreen")
                             Text("=")
@@ -122,7 +125,7 @@ struct Explanation1View: View {
                             answer = ["4", "", "2", ""]
                         }
                     } else if step == 3 {
-                        HStack{
+                        HStack {
                             Text("memberi")
                                 .font(.title)
                                 .foregroundColor(.pink)
@@ -139,7 +142,7 @@ struct Explanation1View: View {
                             answer = ["4", "+", "2", ""]
                         }
                     } else if step == 4 {
-                        HStack{
+                        HStack {
                             Text("4 + 2 = ?")
                                 .font(.largeTitle)
                         }
